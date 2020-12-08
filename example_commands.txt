@@ -1,4 +1,9 @@
 zip -r deploy.zip index.js node_modules
 aws lambda update-function-code --function-name curso-alura-1-3 --zip-file fileb://deploy.zip
 
-serverless create --template aws-nodejs --patch cadastro-pacientes
+# creating the serveless project in the following path
+serverless create --template aws-nodejs --path cadastro-pacientes
+
+# running the project with serverless
+sls invoke local -f helo
+sls invoke local -f listarPacientes -d '{"teste": "testeValue"}'
