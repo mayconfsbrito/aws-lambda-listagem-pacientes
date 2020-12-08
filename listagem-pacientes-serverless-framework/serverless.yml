@@ -30,3 +30,9 @@ region: us-east-1
 functions:
   listarPacientes:
     handler: handler.listarPacientes
+    events:
+      - http:
+          path: /pacientes
+          method: get
+          #cors: true
+          #private: true
