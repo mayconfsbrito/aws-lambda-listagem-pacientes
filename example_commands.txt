@@ -7,3 +7,7 @@ serverless create --template aws-nodejs --path cadastro-pacientes
 # running the project with serverless
 sls invoke local -f helo
 sls invoke local -f listarPacientes -d '{"teste": "testeValue"}'
+
+# deploy
+sls deploy
+sls deploy --stage qa
