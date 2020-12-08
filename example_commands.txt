@@ -11,3 +11,6 @@ sls invoke local -f listarPacientes -d '{"teste": "testeValue"}'
 # deploy
 sls deploy
 sls deploy --stage qa
+
+# deploy just this function below
+sls deploy -f obterPaciente

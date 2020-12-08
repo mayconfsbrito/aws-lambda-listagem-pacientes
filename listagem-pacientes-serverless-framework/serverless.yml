@@ -36,3 +36,9 @@ functions:
           method: get
           #cors: true
           #private: true
+  obterPaciente:
+    handler: handler.obterPaciente
+    events:
+      - http:
+          path: pacientes/{pacienteId}
+          method: get
