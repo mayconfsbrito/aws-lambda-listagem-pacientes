@@ -21,9 +21,16 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-
-stage: dev
-region: us-east-1
+  stage: dev
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:PutItem
+        - dynamodb:DeleteItem
+      Resource: arn:aws:dynamodb:us-east-1:678479056326:table/PACIENTES
 
 functions:
   listarPacientes:
@@ -40,3 +47,19 @@ functions:
       - http:
           path: pacientes/{pacienteId}
           method: get
+
+resources:
+  Resources:
+    PacientesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: PACIENTES
+        AttributeDefinitions:
+          - AttributeName: paciente_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: paciente_id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

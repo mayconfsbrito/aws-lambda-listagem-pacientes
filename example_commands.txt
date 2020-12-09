@@ -17,3 +17,6 @@ sls deploy -f obterPaciente
 
 # deploy application locally
 sls offline
+
+# aws cli command to run json file in DynamoDB
+aws dynamodb batch-write-item --request-items file://pacientes.json

@@ -19,5 +19,8 @@
   "homepage": "https://github.com/mayconfsbrito/aws-lambda-listagem-pacientes#readme",
   "devDependencies": {
     "serverless-offline": "^6.8.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.806.0"
   }
 }
