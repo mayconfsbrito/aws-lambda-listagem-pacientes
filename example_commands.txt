@@ -14,3 +14,6 @@ sls deploy --stage qa
 
 # deploy just this function below
 sls deploy -f obterPaciente
+
+# deploy application locally
+sls offline

@@ -1,0 +1,23 @@
+{
+  "name": "aws-lambda-listagem-pacientes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayconfsbrito/aws-lambda-listagem-pacientes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayconfsbrito/aws-lambda-listagem-pacientes/issues"
+  },
+  "homepage": "https://github.com/mayconfsbrito/aws-lambda-listagem-pacientes#readme",
+  "devDependencies": {
+    "serverless-offline": "^6.8.0"
+  }
+}
