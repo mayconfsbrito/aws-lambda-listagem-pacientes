@@ -153,3 +153,43 @@ module.exports.atualizarPaciente = async (event) => {
     }
   }
 };
+
+module.exports.excluirPaciente = async (event) => {
+  const { pacienteId } = event.pathParameters
+
+  try {
+    await dynamoDb
+      .delete({
+        ...params,
+        Key: {
+          paciente_id: pacienteId
+        },
+        ConditionExpression: 'attribute_exists(paciente_id)'
+      })
+      .promise()
+
+    return {
+      statusCode: 204
+    }
+  } catch (err) {
+    console.log("Error", err);
+
+    let error = err.name ? err.name : "Exception";
+    let message = err.message ? err.message : "Unknown error";
+    let statusCode = err.statusCode ? err.statusCode : 500;
+
+    if (error = 'ConditionalCheckFailedException') {
+      error = 'Paciente não existe';
+      message = `Recurso com ID ${pacienteId} não existe e não pode ser atualizado`;
+      statusCode = 404;
+    }
+
+    return {
+      statusCode,
+      body: JSON.stringify({
+        error,
+        message
+      })
+    }
+  }
+};
