@@ -30,6 +30,7 @@ provider:
         - dynamodb:Scan
         - dynamodb:PutItem
         - dynamodb:DeleteItem
+        - dynamodb:GetItem
       Resource: arn:aws:dynamodb:us-east-1:678479056326:table/PACIENTES
 
 functions:
